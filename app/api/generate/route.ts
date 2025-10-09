@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
     // Generate favicon.ico (using the 32x32 version)
     if (icons['favicon-32x32']) {
       const faviconData = icons['favicon-32x32'].split(',')[1]
-      const faviconBuffer = Buffer.from(faviconData, 'base64')
+      const faviconBuffer = Uint8Array.from(atob(faviconData), c => c.charCodeAt(0))
       zip.file('favicon.ico', faviconBuffer)
     }
 
