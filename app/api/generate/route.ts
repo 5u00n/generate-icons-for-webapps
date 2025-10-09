@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       if (typeof dataUrl === 'string' && dataUrl.startsWith('data:image/png;base64,')) {
         // Extract base64 data
         const base64Data = dataUrl.split(',')[1]
-        const buffer = Buffer.from(base64Data, 'base64')
+        const buffer = Uint8Array.from(atob(base64Data), c => c.charCodeAt(0))
         
         // Find the corresponding filename
         const iconSize = PWA_ICON_SIZES.find(size => size.name === name)
@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Generate the zip file
-    const zipBuffer = await zip.generateAsync({ type: 'nodebuffer' })
+    const zipBuffer = await zip.generateAsync({ type: 'uint8array' })
 
     return new NextResponse(zipBuffer, {
       headers: {
