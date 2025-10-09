@@ -13,7 +13,7 @@ export const PWA_ICON_SIZES: IconSize[] = [
   { width: 96, height: 96, name: 'android-chrome-96x96', filename: 'android-chrome-96x96.png' },
   { width: 144, height: 144, name: 'android-chrome-144x144', filename: 'android-chrome-144x144.png' },
   { width: 152, height: 152, name: 'apple-touch-icon-152x152', filename: 'apple-touch-icon-152x152.png' },
-  { width: 180, height: 180, name: 'apple-touch-icon-180x180', filename: 'apple-touch-icon-180x180.png' },
+  { width: 180, height: 180, name: 'apple-touch-icon', filename: 'apple-touch-icon.png' },
   { width: 192, height: 192, name: 'android-chrome-192x192', filename: 'android-chrome-192x192.png' },
   { width: 512, height: 512, name: 'android-chrome-512x512', filename: 'android-chrome-512x512.png' },
   { width: 1024, height: 1024, name: 'apple-splash-screen', filename: 'apple-splash-screen-1024x1024.png' },
