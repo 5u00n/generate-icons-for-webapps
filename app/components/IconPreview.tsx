@@ -47,8 +47,13 @@ export default function IconPreview({ previewUrl }: IconPreviewProps) {
               <div key={size} className="text-center">
                 <Card className={`border-2 border-${color}-200 bg-${color}-50`}>
                   <CardContent className="p-4">
-                    <div className="w-16 h-16 bg-gray-200 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                      <Icon className={`w-6 h-6 text-${color}-600`} />
+                    <div className="w-16 h-16 bg-gray-200 rounded-lg mx-auto mb-2 flex items-center justify-center overflow-hidden">
+                      <img
+                        src={previewUrl}
+                        alt={`${size} preview`}
+                        className="w-full h-full object-contain"
+                        style={{ maxWidth: '100%', maxHeight: '100%' }}
+                      />
                     </div>
                     <p className="text-sm font-semibold text-gray-700">{size}</p>
                     <p className={`text-xs text-${color}-600`}>{platform}</p>
