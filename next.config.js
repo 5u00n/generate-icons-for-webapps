@@ -4,4 +4,6 @@ module.exports = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  // Disable output file tracing to prevent micromatch stack overflow on Vercel
+  outputFileTracing: false,
 }
