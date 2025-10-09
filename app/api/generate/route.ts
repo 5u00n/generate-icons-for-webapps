@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     // Generate the zip file
     const zipBuffer = await zip.generateAsync({ type: 'uint8array' })
 
-    return new NextResponse(zipBuffer, {
+    return new Response(zipBuffer, {
       headers: {
         'Content-Type': 'application/zip',
         'Content-Disposition': 'attachment; filename="pwa-icons.zip"',
