@@ -15,6 +15,37 @@ export default function Home() {
   const [generatedIcons, setGeneratedIcons] = useState<Record<string, string> | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
+  // Structured Data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PWA Icon Generator",
+    "description": "Transform your logo into all required PWA icon sizes instantly. Generate 11 different icon sizes for Progressive Web Apps, Android, iOS, and web browsers.",
+    "url": "https://pwa-icon-generator.vercel.app",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "PWA Icon Generator Team"
+    },
+    "featureList": [
+      "Generate 11 PWA icon sizes",
+      "Android Chrome icons",
+      "iOS Apple Touch icons", 
+      "Web favicons",
+      "Manifest.json generation",
+      "Instant download",
+      "High quality output",
+      "Free to use"
+    ],
+    "screenshot": "https://pwa-icon-generator.vercel.app/og-image.png"
+  }
+
   const handleFileUpload = (file: File | null) => {
     setUploadedFile(file)
     if (file) {
@@ -75,7 +106,15 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <>
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Hero Section */}
       <div className="relative overflow-hidden min-h-screen flex items-center">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-indigo-600/5"></div>
@@ -324,5 +363,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
+    </>
   )
 }
