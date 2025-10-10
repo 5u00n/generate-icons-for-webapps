@@ -139,6 +139,20 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Last Updated Section */}
+            <div className="flex justify-center mb-8">
+              <div className="flex items-center gap-3 text-muted-foreground bg-white/40 px-6 py-3 rounded-full backdrop-blur-sm border border-white/20">
+                <Clock className="w-5 h-5 text-indigo-600" />
+                <span className="text-sm font-medium">Last Updated: {new Date(process.env.BUILD_TIME || new Date().toISOString()).toLocaleDateString('en-US', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit'
+                })}</span>
+              </div>
+            </div>
+
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               <div className="text-center">

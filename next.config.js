@@ -6,4 +6,8 @@ module.exports = {
   },
   // Disable output file tracing to prevent micromatch stack overflow on Vercel
   outputFileTracing: false,
+  // Inject build timestamp as environment variable
+  env: {
+    BUILD_TIME: new Date().toISOString(),
+  },
 }
