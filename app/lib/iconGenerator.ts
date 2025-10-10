@@ -52,6 +52,11 @@ export async function generateIcons(file: File): Promise<Record<string, string>>
           
           // Convert to data URL with transparency
           icons[name] = canvas.toDataURL('image/png')
+          
+          // Debug log for apple-touch-icon
+          if (name === 'apple-touch-icon') {
+            console.log('Generated apple-touch-icon:', name, width, height)
+          }
         })
         
         resolve(icons)

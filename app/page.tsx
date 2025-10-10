@@ -32,6 +32,8 @@ export default function Home() {
     setIsGenerating(true)
     try {
       const icons = await generateIcons(uploadedFile)
+      console.log('Generated icons:', Object.keys(icons))
+      console.log('Apple touch icon present:', 'apple-touch-icon' in icons)
       setGeneratedIcons(icons)
     } catch (error) {
       console.error('Error generating icons:', error)
