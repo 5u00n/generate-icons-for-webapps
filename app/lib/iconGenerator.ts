@@ -35,22 +35,22 @@ export async function generateIcons(file: File): Promise<Record<string, string>>
           canvas.width = width
           canvas.height = height
           
-          // Clear canvas
+          // Clear canvas with transparent background
           ctx.clearRect(0, 0, width, height)
           
-          // Calculate scaling to fit the image while maintaining aspect ratio
-          const scale = Math.min(width / img.width, height / img.height)
+          // Calculate scaling to fill the entire canvas (crop if necessary)
+          const scale = Math.max(width / img.width, height / img.height)
           const scaledWidth = img.width * scale
           const scaledHeight = img.height * scale
           
-          // Center the image
+          // Center the image (this will crop excess parts)
           const x = (width - scaledWidth) / 2
           const y = (height - scaledHeight) / 2
           
-          // Draw the image
+          // Draw the image to fill the entire canvas
           ctx.drawImage(img, x, y, scaledWidth, scaledHeight)
           
-          // Convert to data URL
+          // Convert to data URL with transparency
           icons[name] = canvas.toDataURL('image/png')
         })
         
